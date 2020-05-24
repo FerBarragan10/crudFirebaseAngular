@@ -1,0 +1,62 @@
+<h1>Listado de cervezas</h1>
+<hr>
+<div class="row">
+    <div class="col text-right" style="position: relative;right: 9vw">
+        <button routerLink="/cerveza/nuevo" 
+        class="btn btn-primary">
+            <i class="fa fa-plus"></i>
+            Agregar
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="tabla col-6">
+        <table class="table table-dark" >
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">%Alcohol</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cerveza of cervezas;let i=index">
+                  <th scope="row">{{i+1}} </th>
+                  <td>{{cerveza.nombre}}</td>
+                  <td>{{cerveza.tipo}}</td>
+                  <td>{{cerveza.descripcion}}</td>
+                  <td style="text-align: center;">{{cerveza.porcentaje}}</td>
+                  <button class="btn btn-warning" [routerLink]="['/cerveza', cerveza.id ]">
+                    <i class="fas fa-pencil-alt"></i>               
+                   </button>
+                   <button class="btn btn-danger"style="margin:2vh" (click)="borrarCerveza( cerveza, i )">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+              </tr>    
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
+
+<div *ngIf="vacio" class="alert alert-warning text-center mt-3 col-6"style="margin:auto">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+ 
+</div>
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 col-6"style="margin:auto">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor
+    </p>
+</div>
