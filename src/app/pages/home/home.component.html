@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col text-right" style="position: relative;right: 9vw">
         <button routerLink="/cerveza/nuevo" 
-        class="btn btn-primary">
+        class="btn btn-outline-success">
             <i class="fa fa-plus"></i>
             Agregar
         </button>
@@ -30,10 +30,15 @@
                   <td>{{cerveza.tipo}}</td>
                   <td>{{cerveza.descripcion}}</td>
                   <td style="text-align: center;">{{cerveza.porcentaje}}</td>
-                  <button class="btn btn-warning" [routerLink]="['/cerveza', cerveza.id ]">
+                 
+                  
+                  <button class="btn btn-outline-warning"  style="margin:2vh" [routerLink]="['/infoCerveza', cerveza.id ]">
+                    <i class="far fa-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-warning"  [routerLink]="['/cerveza', cerveza.id ]">
                     <i class="fas fa-pencil-alt"></i>               
                    </button>
-                   <button class="btn btn-danger"style="margin:2vh" (click)="borrarCerveza( cerveza, i )">
+                   <button class="btn btn-outline-warning"style="margin:2vh" (click)="borrarCerveza( cerveza, i )">
                     <i class="far fa-trash-alt"></i>
                   </button>
               </tr>    
@@ -44,13 +49,13 @@
 
 
 
-<div *ngIf="vacio" class="alert alert-warning text-center mt-3 col-6"style="margin:auto">
+<!-- <div *ngIf="vacio" class="alert alert-warning text-center mt-3 col-6"style="margin:auto">
     <h4 class="alert-heading">No hay registros</h4>
     <p>
         <i class="fa fa-exclamation fa-2x"></i>
     </p>
  
-</div>
+</div> -->
 <div *ngIf="cargando" class="alert alert-info text-center mt-3 col-6"style="margin:auto">
     <h4 class="alert-heading">Cargando</h4>
     <p>
