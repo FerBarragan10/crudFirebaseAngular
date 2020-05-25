@@ -32,11 +32,11 @@ export class HomeComponent implements OnInit {
       this.cargando=false;
     })
   }
-  borrarCerveza( cerveza: CervezaModel, i: number ) {
-
+  borrarCerveza( beer: CervezaModel, i: number ) {
+    console.log(beer);
     Swal.fire({
       title: '¿Está seguro?',
-      text: `Está seguro que desea borrar a ${ this.cerveza.nombre }`,
+      text: `Está seguro que desea borrar a la cerveza ${ beer.nombre }`,
       showConfirmButton: true,
       showCancelButton: true
     }).then( resp => {
